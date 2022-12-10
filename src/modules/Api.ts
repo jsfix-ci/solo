@@ -242,7 +242,13 @@ export class Api {
       startingBefore: startingBefore && startingBefore.toISOString(),
     };
 
-    const query: string = queryString.stringify(queryObj, { skipNull: true, arrayFormat: 'comma' });
+    const query: string = /* TODO: JSFIX could not patch the breaking change:
+    Implement skips for stringify array format comma */
+    queryString.stringify(queryObj, {
+      skipNull: true,
+      arrayFormat: 'comma',
+      skipEmptyString: true
+    });
 
     return this.axiosRequest({
       url: `${this.endpoint}/v2/orders?${query}`,
@@ -301,7 +307,13 @@ export class Api {
       startingBefore: startingBefore && startingBefore.toISOString(),
     };
 
-    const query: string = queryString.stringify(queryObj, { skipNull: true, arrayFormat: 'comma' });
+    const query: string = /* TODO: JSFIX could not patch the breaking change:
+    Implement skips for stringify array format comma */
+    queryString.stringify(queryObj, {
+      skipNull: true,
+      arrayFormat: 'comma',
+      skipEmptyString: true
+    });
 
     return this.axiosRequest({
       url: `${this.endpoint}/v2/fills?${query}`,
@@ -330,7 +342,13 @@ export class Api {
       startingBefore: startingBefore && startingBefore.toISOString(),
     };
 
-    const query: string = queryString.stringify(queryObj, { skipNull: true, arrayFormat: 'comma' });
+    const query: string = /* TODO: JSFIX could not patch the breaking change:
+    Implement skips for stringify array format comma */
+    queryString.stringify(queryObj, {
+      skipNull: true,
+      arrayFormat: 'comma',
+      skipEmptyString: true
+    });
 
     return this.axiosRequest({
       url: `${this.endpoint}/v2/trades?${query}`,
